@@ -11,6 +11,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         List<WiseSaying> forms = new ArrayList<>();
+        int lastId = 0;
 
         while(true) {
             System.out.print("명령) ");
@@ -21,13 +22,17 @@ public class Main {
                 System.out.print("명언 : ");
                 String content = sc.nextLine();
 
-                System.out.println("작가");
+                System.out.print("작가 : ");
                 String auth = sc.nextLine();
-
-                WiseSaying newForm = new WiseSaying();
+                int id = lastId + 1;
+                WiseSaying newForm = new WiseSaying(id);
                 newForm.setText(content);
                 newForm.setAuth(auth);
                 forms.add(newForm);
+
+                lastId = id;
+
+                System.out.println(id + "번 명언이 등록되었습니다.");
             }
         }
 
