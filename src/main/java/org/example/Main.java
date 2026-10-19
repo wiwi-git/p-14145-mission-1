@@ -10,8 +10,11 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        List<WiseSaying> forms = new ArrayList<>();
+//        List<WiseSaying> forms = new ArrayList<>();
+        WiseSaying[] forms = new WiseSaying[99];
+
         int lastId = 0;
+
 
         while(true) {
             System.out.print("명령) ");
@@ -28,11 +31,19 @@ public class Main {
                 WiseSaying newForm = new WiseSaying(id);
                 newForm.setText(content);
                 newForm.setAuth(auth);
-                forms.add(newForm);
+//                forms.add(newForm);
+                forms[lastId] = newForm;
 
                 lastId = id;
 
                 System.out.println(id + "번 명언이 등록되었습니다.");
+            } else if (cmd.equals("목록")) {
+                System.out.println("""
+                        번호 / 작가 / 명언
+                        ----------------------""");
+                for (int i=lastId - 1; i>=0; i--) {
+                    System.out.println(forms[i].toString());
+                }
             }
         }
 

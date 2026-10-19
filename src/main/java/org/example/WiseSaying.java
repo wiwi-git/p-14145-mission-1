@@ -38,4 +38,8 @@ public class WiseSaying {
     public void setAuth(String auth) {
         this.auth = auth;
     }
+
+    public String toString() {
+        return  id + " / " + auth + " / " + text;
+    }
 }
